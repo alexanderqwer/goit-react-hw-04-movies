@@ -1,0 +1,31 @@
+{
+  "files": {
+    "static/js/0.b2be25b5.chunk.js": "/goit-react-hw-02-feedback/static/js/0.b2be25b5.chunk.js",
+    "static/js/0.b2be25b5.chunk.js.map": "/goit-react-hw-02-feedback/static/js/0.b2be25b5.chunk.js.map",
+    "Cast.js": "/goit-react-hw-02-feedback/static/js/Cast.b7c1fd21.chunk.js",
+    "Cast.js.map": "/goit-react-hw-02-feedback/static/js/Cast.b7c1fd21.chunk.js.map",
+    "HomePage.js": "/goit-react-hw-02-feedback/static/js/HomePage.6d90d9c3.chunk.js",
+    "HomePage.js.map": "/goit-react-hw-02-feedback/static/js/HomePage.6d90d9c3.chunk.js.map",
+    "MovieDetalisPage.js": "/goit-react-hw-02-feedback/static/js/MovieDetalisPage.a949a01d.chunk.js",
+    "MovieDetalisPage.js.map": "/goit-react-hw-02-feedback/static/js/MovieDetalisPage.a949a01d.chunk.js.map",
+    "MoviePage.js": "/goit-react-hw-02-feedback/static/js/MoviePage.bf9c04e1.chunk.js",
+    "MoviePage.js.map": "/goit-react-hw-02-feedback/static/js/MoviePage.bf9c04e1.chunk.js.map",
+    "Reviews.js": "/goit-react-hw-02-feedback/static/js/Reviews.dd7395a3.chunk.js",
+    "Reviews.js.map": "/goit-react-hw-02-feedback/static/js/Reviews.dd7395a3.chunk.js.map",
+    "main.js": "/goit-react-hw-02-feedback/static/js/main.d1ac1715.chunk.js",
+    "main.js.map": "/goit-react-hw-02-feedback/static/js/main.d1ac1715.chunk.js.map",
+    "runtime-main.js": "/goit-react-hw-02-feedback/static/js/runtime-main.189a1dee.js",
+    "runtime-main.js.map": "/goit-react-hw-02-feedback/static/js/runtime-main.189a1dee.js.map",
+    "static/js/8.74b2784a.chunk.js": "/goit-react-hw-02-feedback/static/js/8.74b2784a.chunk.js",
+    "static/js/8.74b2784a.chunk.js.map": "/goit-react-hw-02-feedback/static/js/8.74b2784a.chunk.js.map",
+    "index.html": "/goit-react-hw-02-feedback/index.html",
+    "precache-manifest.4d72ed82541bb9ec973a086fd779e078.js": "/goit-react-hw-02-feedback/precache-manifest.4d72ed82541bb9ec973a086fd779e078.js",
+    "service-worker.js": "/goit-react-hw-02-feedback/service-worker.js",
+    "static/js/8.74b2784a.chunk.js.LICENSE": "/goit-react-hw-02-feedback/static/js/8.74b2784a.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.189a1dee.js",
+    "static/js/8.74b2784a.chunk.js",
+    "static/js/main.d1ac1715.chunk.js"
+  ]
+}
