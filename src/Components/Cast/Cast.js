@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import * as API from '../../Services/api';
 
 const BASEPOSTERURL = 'https://image.tmdb.org/t/p/w185';
 
 export default class Cast extends Component {
+  static propTypes = {
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        movieId: PropTypes.string,
+      }).isRequired,
+    }).isRequired,
+  };
+
   state = { data: [] };
 
   componentDidMount() {
@@ -11,7 +20,9 @@ export default class Cast extends Component {
   }
 
   getDataCast = () => {
-    API.getCast(550)
+    const { match } = this.props;
+    const { movieId } = match.params;
+    API.getCast(movieId)
       .then(({ data }) => this.setState({ data: data.cast }))
       .catch(error => alert(error));
   };

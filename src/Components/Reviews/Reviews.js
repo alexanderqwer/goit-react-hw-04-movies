@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import * as API from '../../Services/api';
 
 export default class Reviews extends Component {
+  static propTypes = {
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        movieId: PropTypes.string,
+      }).isRequired,
+    }).isRequired,
+  };
+
   state = { data: [] };
 
   componentDidMount() {
@@ -9,7 +18,9 @@ export default class Reviews extends Component {
   }
 
   getDataReviews = () => {
-    API.getReviews(550)
+    const { match } = this.props;
+    const { movieId } = match.params;
+    API.getReviews(movieId)
       .then(({ data }) => this.setState({ data: data.results }))
       .catch(error => alert(error));
   };
