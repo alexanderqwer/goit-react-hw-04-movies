@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import queryString from 'query-string';
 import * as API from '../../Services/api';
+import Styles from './MoviesPage.module.css';
 
 export default class MoviesPage extends Component {
   state = {
@@ -74,7 +75,7 @@ export default class MoviesPage extends Component {
           {data.length > 0 &&
             data.map(item => (
               <li key={item.id}>
-                <NavLink to={`/movies/${item.id}`}>
+                <NavLink to={`/movies/${item.id}`} className={Styles.link}>
                   {item.name || item.title}
                 </NavLink>
               </li>
