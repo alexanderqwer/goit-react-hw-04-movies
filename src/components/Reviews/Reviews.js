@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import * as API from '../../Services/api';
+import * as API from '../../services/api';
 
 export default class Reviews extends Component {
   static propTypes = {

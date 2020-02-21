@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import queryString from 'query-string';
-import * as API from '../../Services/api';
-import Styles from './MoviesPage.module.css';
+import * as API from '../../services/api';
 
 export default class MoviesPage extends Component {
   state = {
-    data: [],
+    movies: [],
     input: '',
     search: '',
   };
@@ -33,7 +32,7 @@ export default class MoviesPage extends Component {
   componentDidUpdate(prevProps, prevState) {
     const { search } = this.state;
     if (prevState.search !== search) {
-      this.getDataMovieList(search);
+      this.fetchMoviesList(search);
     }
   }
 
@@ -54,15 +53,15 @@ export default class MoviesPage extends Component {
     });
   };
 
-  getDataMovieList = query => {
+  fetchMoviesList = query => {
     API.getMovieList(query)
-      .then(({ data }) => this.setState({ data: data.results }))
+      .then(({ data }) => this.setState({ movies: data.results }))
       // eslint-disable-next-line no-alert
       .catch(error => alert(error));
   };
 
   render() {
-    const { data, input } = this.state;
+    const { movies, input } = this.state;
     return (
       <div>
         <form onSubmit={this.handleOnSubmit}>
@@ -72,10 +71,10 @@ export default class MoviesPage extends Component {
           </button>
         </form>
         <ul>
-          {data.length > 0 &&
-            data.map(item => (
+          {movies.length > 0 &&
+            movies.map(item => (
               <li key={item.id}>
-                <NavLink to={`/movies/${item.id}`} className={Styles.link}>
+                <NavLink to={`/movies/${item.id}`}>
                   {item.name || item.title}
                 </NavLink>
               </li>

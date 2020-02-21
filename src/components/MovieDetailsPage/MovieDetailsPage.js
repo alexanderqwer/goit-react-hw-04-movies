@@ -1,7 +1,8 @@
 import React, { Component, lazy, Suspense } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink, Route, Switch } from 'react-router-dom';
-import * as API from '../../Services/api';
+import * as API from '../../services/api';
+import Styles from './MovieDetailsPage.module.css';
 
 const Reviews = lazy(() =>
   import('../Reviews/Reviews' /* webpackChunkName: "Reviews" */),
@@ -73,14 +74,24 @@ export default class MovieDetailsPage extends Component {
               </div>
               <section>
                 <h3>additional information</h3>
-                <ul>
-                  <li>
-                    <NavLink to={`/movies/${id}/cast`} replace>
+                <ul className={Styles.list}>
+                  <li className={Styles.item}>
+                    <NavLink
+                      to={`/movies/${id}/cast`}
+                      replace
+                      activeClassName={Styles.linkActive}
+                      className={Styles.link}
+                    >
                       Cast
                     </NavLink>
                   </li>
-                  <li>
-                    <NavLink to={`/movies/${id}/reviews`} replace>
+                  <li className={Styles.item}>
+                    <NavLink
+                      to={`/movies/${id}/reviews`}
+                      replace
+                      activeClassName={Styles.linkActive}
+                      className={Styles.link}
+                    >
                       Reviews
                     </NavLink>
                   </li>

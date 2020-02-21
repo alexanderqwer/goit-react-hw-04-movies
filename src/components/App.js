@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from 'react';
-import { Route, Switch, NavLink } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import Navigation from './Navigation/Navigation';
 
 const HomePage = lazy(() =>
   import('./HomePage/HomePage' /* webpackChunkName: "HomePage" */),
@@ -16,24 +17,14 @@ const MoviePage = lazy(() =>
 const App = () => {
   return (
     <>
-      <nav>
-        <ul>
-          <li>
-            <NavLink exact to="/">
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/movies">Movies</NavLink>
-          </li>
-        </ul>
-      </nav>
+      <Navigation />
       <div>
         <Suspense fallback={<div>Loading...</div>}>
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route path="/movies/:id" component={MovieDetalisPage} />
             <Route path="/movies" component={MoviePage} />
+            <Redirect to="/" />
           </Switch>
         </Suspense>
       </div>

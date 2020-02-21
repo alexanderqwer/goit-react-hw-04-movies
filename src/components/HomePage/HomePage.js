@@ -1,30 +1,30 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import * as API from '../../Services/api';
+import * as API from '../../services/api';
 
 export default class HomePage extends Component {
   state = {
-    data: [],
+    movies: [],
   };
 
   componentDidMount() {
-    this.getDataAPI();
+    this.fetchMoviesList();
   }
 
-  getDataAPI = () => {
+  fetchMoviesList = () => {
     API.getTrading()
-      .then(({ data }) => this.setState({ data: data.results }))
+      .then(({ data }) => this.setState({ movies: data.results }))
       .catch(error => alert(error));
   };
 
   render() {
-    const { data } = this.state;
+    const { movies } = this.state;
     return (
       <div>
         <h1>Trending today</h1>
         <ul>
-          {data.length > 0 &&
-            data.map(item => (
+          {movies.length > 0 &&
+            movies.map(item => (
               <li key={item.id}>
                 <NavLink to={`/movies/${item.id}`}>
                   {item.name || item.title}
