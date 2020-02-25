@@ -4,6 +4,8 @@ const BASEURL = 'https://api.themoviedb.org/3';
 const KEY = '27948a4ccec018117337a604d5ddcbec';
 const type = 'all';
 const time = 'day';
+export const BASEPOSTERURL = 'https://image.tmdb.org/t/p/w185';
+export const BASEIMGURL = 'https://image.tmdb.org/t/p/w500';
 
 export const getTrading = () => {
   return Axios.get(`${BASEURL}/trending/${type}/${time}?api_key=${KEY}`);

@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Styles from './Navigation.module.css';
+import * as routes from '../../services/routes';
 
 export default function Navigation() {
   return (
@@ -9,7 +10,7 @@ export default function Navigation() {
         <li className={Styles.item}>
           <NavLink
             exact
-            to="/"
+            to={routes.HOME_PAGE.path}
             className={Styles.link}
             activeClassName={Styles.linkActive}
           >
@@ -18,7 +19,7 @@ export default function Navigation() {
         </li>
         <li className={Styles.item}>
           <NavLink
-            to="/movies"
+            to={routes.MOVIE_PAGE.path}
             className={Styles.link}
             activeClassName={Styles.linkActive}
           >

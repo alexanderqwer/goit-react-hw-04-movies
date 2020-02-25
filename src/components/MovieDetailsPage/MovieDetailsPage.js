@@ -1,15 +1,10 @@
-import React, { Component, lazy, Suspense } from 'react';
+import React, { Component, Suspense } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink, Route, Switch } from 'react-router-dom';
 import * as API from '../../services/api';
 import Styles from './MovieDetailsPage.module.css';
+import * as routes from '../../services/routes';
 
-const Reviews = lazy(() =>
-  import('../Reviews/Reviews' /* webpackChunkName: "Reviews" */),
-);
-const Cast = lazy(() => import('../Cast/Cast' /* webpackChunkName: "Cast" */));
-
-const BASEIMGURL = 'https://image.tmdb.org/t/p/w500';
 export default class MovieDetailsPage extends Component {
   static propTypes = {
     history: PropTypes.shape({
@@ -56,7 +51,7 @@ export default class MovieDetailsPage extends Component {
                   <button type="button" onClick={this.goBackToHisroty}>
                     Go back
                   </button>
-                  <img src={`${BASEIMGURL}${data.poster_path}`} alt="" />
+                  <img src={`${API.BASEIMGURL}${data.poster_path}`} alt="" />
                 </div>
                 <div>
                   <h2>{data.original_title}</h2>
@@ -98,10 +93,13 @@ export default class MovieDetailsPage extends Component {
                 </ul>
                 <Suspense fallback={<div>Loading...</div>}>
                   <Switch>
-                    <Route path="/movies/:movieId/cast" component={Cast} />
                     <Route
-                      path="/movies/:movieId/reviews"
-                      component={Reviews}
+                      path={routes.CAST.path}
+                      component={routes.CAST.component}
+                    />
+                    <Route
+                      path={routes.REVIEWS.path}
+                      component={routes.REVIEWS.component}
                     />
                   </Switch>
                 </Suspense>

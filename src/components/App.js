@@ -1,18 +1,7 @@
-import React, { lazy, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Navigation from './Navigation/Navigation';
-
-const HomePage = lazy(() =>
-  import('./HomePage/HomePage' /* webpackChunkName: "HomePage" */),
-);
-const MovieDetalisPage = lazy(() =>
-  import(
-    './MovieDetailsPage/MovieDetailsPage' /* webpackChunkName: "MovieDetalisPage" */
-  ),
-);
-const MoviePage = lazy(() =>
-  import('./MoviesPage/MoviesPage' /* webpackChunkName: "MoviePage" */),
-);
+import * as routes from '../services/routes';
 
 const App = () => {
   return (
@@ -21,10 +10,20 @@ const App = () => {
       <div>
         <Suspense fallback={<div>Loading...</div>}>
           <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route path="/movies/:id" component={MovieDetalisPage} />
-            <Route path="/movies" component={MoviePage} />
-            <Redirect to="/" />
+            <Route
+              exact
+              path={routes.HOME_PAGE.path}
+              component={routes.HOME_PAGE.component}
+            />
+            <Route
+              path={routes.MOVIE_DETAILS_PAGE.path}
+              component={routes.MOVIE_DETAILS_PAGE.component}
+            />
+            <Route
+              path={routes.MOVIE_PAGE.path}
+              component={routes.MOVIE_PAGE.component}
+            />
+            <Redirect to={routes.HOME_PAGE.path} />
           </Switch>
         </Suspense>
       </div>

@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as API from '../../services/api';
 
-const BASEPOSTERURL = 'https://image.tmdb.org/t/p/w185';
-
 export default class Cast extends Component {
   static propTypes = {
     match: PropTypes.shape({
@@ -36,7 +34,10 @@ export default class Cast extends Component {
             data.map(item => (
               <li key={item.id}>
                 {item.profile_path && (
-                  <img src={`${BASEPOSTERURL}${item.profile_path}`} alt="" />
+                  <img
+                    src={`${API.BASEPOSTERURL}${item.profile_path}`}
+                    alt=""
+                  />
                 )}
                 <p>{item.name}</p>
                 <p>character: {item.character} </p>
